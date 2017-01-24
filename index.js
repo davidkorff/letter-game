@@ -4,7 +4,7 @@ document.addEventListener('keydown', function(e) {
   if (e.which === 13) {
     i=0
     document.getElementById("score").innerHTML = i
-    secs = 1000
+    secs = 3000
     startGame()
     document.getElementById("time").innerHTML = secs
     myTimer()
@@ -23,8 +23,7 @@ function didYouGetIt(letter){
 
 function pressLetter(e){
   let letter = e.target.getElementsByTagName("p").game.innerHTML.toLowerCase()
-  if (e.key === letter) {
-    console.log(e.key); console.log(e.which); console.log(letter);
+  if (e.key === letter) {//--console.log(e.key); console.log(e.which); console.log(letter);
     addToScore()
     document.removeEventListener("keypress", pressLetter)
     startGame()
@@ -47,8 +46,7 @@ function myTimer(){
       document.getElementById("time").innerHTML = secs
       document.getElementById("final").innerHTML = `Your Score is ${i}`
       document.getElementById("score").innerHTML = i
-      document.removeEventListener("keypress", pressLetter)
-      //clearInterval(id)
+      document.removeEventListener("keypress", pressLetter) //--clearInterval(id)
      }
      document.getElementById("time").innerHTML = secs
   }, 10)}
