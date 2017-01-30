@@ -1,4 +1,3 @@
-
 letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 document.addEventListener('keydown', function(e) {
   if (e.which === 13) {
@@ -13,20 +12,30 @@ document.addEventListener('keydown', function(e) {
 
 function startGame(){
   let letter = letters[Math.floor((Math.random()*26))]
-  document.getElementById("game").innerHTML=letter.toUpperCase()
-  didYouGetIt(letter)
+  document.getElementById("game").innerHTML = letter.toUpperCase()
+  didYouGetIt()
 }
 
-function didYouGetIt(letter){
+function didYouGetIt(){
   document.addEventListener("keypress", pressLetter)
 }
 
 function pressLetter(e){
   let letter = e.target.getElementsByTagName("p").game.innerHTML.toLowerCase()
-  if (e.key === letter) {//--console.log(e.key); console.log(e.which); console.log(letter);
+  if (e.key === letter) {
     addToScore()
     document.removeEventListener("keypress", pressLetter)
     startGame()
+  }
+  else {
+    subtractToScore()
+  }
+}
+
+function subtractToScore(){
+  if(i>0){
+    i--
+    document.getElementById("score").innerHTML=i
   }
 }
 
@@ -34,7 +43,6 @@ function addToScore(){
   i++
   document.getElementById("score").innerHTML=i
 }
-
 function myTimer(){
   let id = setInterval(function(){
       secs--
